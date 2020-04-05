@@ -1,11 +1,15 @@
 import React from "react";
+import axios from "axios";
 
 class App extends React.Component {
-  state = { term: "" };
+  state = {
+    term: "",
+    API_KEY: "535accbd0bb3df7f9f65eab220b6d317",
+    url: "https://www.nif.pt/?json=1&q={NIF}&key={API_KEY}"
+  };
 
   constructor(props) {
-    super(props)
-
+    super(props);
   }
 
   onInputChange = event => {
@@ -15,7 +19,7 @@ class App extends React.Component {
   onFormSubmit = event => {
     event.preventDefault();
 
-    console.log(this.state.term)
+    console.log(this.state.term);
 
     //this.props.onFormSubmit(this.state.term);
   };
