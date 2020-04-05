@@ -24,11 +24,11 @@ class App extends React.Component {
     
     event.preventDefault();
 
-    console.log(this.state.term);
+    console.log(url);
 
     //this.props.onFormSubmit(this.state.term);
 
-    const response = await axios.get(url);
+    const response = await axios.get(url, { mode:'cors'});
 
     console.log(response)
 
