@@ -16,12 +16,23 @@ class App extends React.Component {
     this.setState({ term: event.target.value });
   };
 
-  onFormSubmit = event => {
+  onFormSubmit = async event => {
+
+    const url = this.state.url
+      .replace("{NIF}", this.state.term)
+      .replace("{API_KEY}",this.state.API_KEY);
+    
     event.preventDefault();
 
     console.log(this.state.term);
 
     //this.props.onFormSubmit(this.state.term);
+
+    const response = await axios.get(url);
+
+    console.log(response)
+
+    this.setState({ nif: response.records });
   };
 
   render() {
