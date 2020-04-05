@@ -21,7 +21,7 @@ class App extends React.Component {
     const url = "https://www.nif.pt/?json=1&credits=1&key=key"
       .replace("key",this.state.API_KEY);
 
-    const response = await axios.get(url,{ mode: 'no-cors'});
+    const response = await axios.get(url,{ crossDomain: true });
 
     this.setState({ credito: response.credits })
   }
